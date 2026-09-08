@@ -25,37 +25,45 @@
         </div>
     </header>
 
-    <!-- Hero Section con Engranes Animados al Fondo -->
+    <!-- Hero Section con Engranes Animados Paramétricos al Fondo -->
     <section id="inicio" class="hero">
         
-        <!-- 1. Capa de Fondo: Engranes Industriales Animados -->
+        <!-- 1. Capa de Fondo: Engranes Industriales CAD (12 Dientes Simétricos) -->
         <div class="gears-bg-container">
-            <!-- Engrane Grande Izquierda Arriba -->
+            <!-- Engranaje 1 (Izquierda Arriba - Transmisión Primaria) -->
             <svg class="gear gear-main" viewBox="0 0 100 100">
-                <path d="M50,30 A20,20 0 1,0 50,70 A20,20 0 1,0 50,30 Z M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z M46,2 V10 H54 V2 Z M46,90 V98 H54 V90 Z M2,46 H10 V54 H2 Z M90,46 H98 V54 H90 Z M16,16 L22,22 L27,17 L21,11 Z M73,73 L79,79 L84,74 L78,68 Z M16,84 L22,78 L27,83 L21,89 Z M73,27 L79,21 L84,26 L78,32 Z"/>
+                <path d="M50,15 L53,15 L55,7 L45,7 L47,15 L50,15 Z M67,20 L69,22 L76,16 L69,9 L62,15 L67,20 Z M80,33 L82,35 L91,31 L88,21 L79,25 L80,33 Z M85,50 L85,53 L93,55 L93,45 L85,47 L85,50 Z M80,67 L82,69 L89,76 L96,69 L90,62 L80,67 Z M67,80 L69,82 L65,91 L75,88 L71,79 L67,80 Z M50,85 L53,85 L55,93 L45,93 L47,85 L50,85 Z M33,80 L35,82 L31,91 L21,88 L25,79 L33,80 Z M20,67 L22,69 L16,76 L9,69 L15,62 L20,67 Z M15,50 L15,53 L7,55 L7,45 L15,47 L15,50 Z M20,33 L22,35 L9,31 L12,21 L21,25 L20,33 Z M33,20 L35,22 L25,16 L29,9 L38,15 L33,20 Z" fill="currentColor"/>
+                <circle cx="50" cy="50" r="35" fill="currentColor"/>
+                <circle cx="50" cy="50" r="22" fill="#0f172a"/>
                 <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
             </svg>
 
-            <!-- Engrane Secundario Izquierda Abajo -->
+            <!-- Engranaje 2 (Izquierda Abajo - Acoplado con Desfase de 15 deg) -->
             <svg class="gear gear-secondary" viewBox="0 0 100 100">
-                <path d="M50,32 A18,18 0 1,0 50,68 A18,18 0 1,0 50,32 Z M50,14 A36,36 0 1,1 50,86 A36,36 0 1,1 50,14 Z M46,4 V14 H54 V4 Z M46,86 V96 H54 V86 Z M4,46 H14 V54 H4 Z M86,46 H96 V54 H86 Z M18,18 L24,24 L29,19 L23,13 Z M71,71 L77,77 L82,72 L76,66 Z M18,82 L24,76 L29,81 L23,87 Z M71,29 L77,23 L82,28 L76,34 Z"/>
-                <circle cx="50" cy="50" r="8" fill="none" stroke="currentColor" stroke-width="2.5"/>
-            </svg>
-
-            <!-- Engrane Grande Derecha Abajo -->
-            <svg class="gear gear-right" viewBox="0 0 100 100">
-                <path d="M50,30 A20,20 0 1,0 50,70 A20,20 0 1,0 50,30 Z M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z M46,2 V10 H54 V2 Z M46,90 V98 H54 V90 Z M2,46 H10 V54 H2 Z M90,46 H98 V54 H90 Z M16,16 L22,22 L27,17 L21,11 Z M73,73 L79,79 L84,74 L78,68 Z M16,84 L22,78 L27,83 L21,89 Z M73,27 L79,21 L84,26 L78,32 Z"/>
+                <path d="M50,15 L53,15 L55,7 L45,7 L47,15 L50,15 Z M67,20 L69,22 L76,16 L69,9 L62,15 L67,20 Z M80,33 L82,35 L91,31 L88,21 L79,25 L80,33 Z M85,50 L85,53 L93,55 L93,45 L85,47 L85,50 Z M80,67 L82,69 L89,76 L96,69 L90,62 L80,67 Z M67,80 L69,82 L65,91 L75,88 L71,79 L67,80 Z M50,85 L53,85 L55,93 L45,93 L47,85 L50,85 Z M33,80 L35,82 L31,91 L21,88 L25,79 L33,80 Z M20,67 L22,69 L16,76 L9,69 L15,62 L20,67 Z M15,50 L15,53 L7,55 L7,45 L15,47 L15,50 Z M20,33 L22,35 L9,31 L12,21 L21,25 L20,33 Z M33,20 L35,22 L25,16 L29,9 L38,15 L33,20 Z" fill="currentColor"/>
+                <circle cx="50" cy="50" r="35" fill="currentColor"/>
+                <circle cx="50" cy="50" r="22" fill="#0f172a"/>
                 <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
             </svg>
 
-            <!-- Engrane Secundario Derecha Arriba -->
+            <!-- Engranaje 3 (Derecha Abajo - Transmisión Simétrica) -->
+            <svg class="gear gear-right" viewBox="0 0 100 100">
+                <path d="M50,15 L53,15 L55,7 L45,7 L47,15 L50,15 Z M67,20 L69,22 L76,16 L69,9 L62,15 L67,20 Z M80,33 L82,35 L91,31 L88,21 L79,25 L80,33 Z M85,50 L85,53 L93,55 L93,45 L85,47 L85,50 Z M80,67 L82,69 L89,76 L96,69 L90,62 L80,67 Z M67,80 L69,82 L65,91 L75,88 L71,79 L67,80 Z M50,85 L53,85 L55,93 L45,93 L47,85 L50,85 Z M33,80 L35,82 L31,91 L21,88 L25,79 L33,80 Z M20,67 L22,69 L16,76 L9,69 L15,62 L20,67 Z M15,50 L15,53 L7,55 L7,45 L15,47 L15,50 Z M20,33 L22,35 L9,31 L12,21 L21,25 L20,33 Z M33,20 L35,22 L25,16 L29,9 L38,15 L33,20 Z" fill="currentColor"/>
+                <circle cx="50" cy="50" r="35" fill="currentColor"/>
+                <circle cx="50" cy="50" r="22" fill="#0f172a"/>
+                <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+            </svg>
+
+            <!-- Engranaje 4 (Derecha Arriba - Acoplado con Desfase) -->
             <svg class="gear gear-small-top" viewBox="0 0 100 100">
-                <path d="M50,32 A18,18 0 1,0 50,68 A18,18 0 1,0 50,32 Z M50,14 A36,36 0 1,1 50,86 A36,36 0 1,1 50,14 Z M46,4 V14 H54 V4 Z M46,86 V96 H54 V86 Z M4,46 H14 V54 H4 Z M86,46 H96 V54 H86 Z M18,18 L24,24 L29,19 L23,13 Z M71,71 L77,77 L82,72 L76,66 Z M18,82 L24,76 L29,81 L23,87 Z M71,29 L77,23 L82,28 L76,34 Z"/>
-                <circle cx="50" cy="50" r="8" fill="none" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M50,15 L53,15 L55,7 L45,7 L47,15 L50,15 Z M67,20 L69,22 L76,16 L69,9 L62,15 L67,20 Z M80,33 L82,35 L91,31 L88,21 L79,25 L80,33 Z M85,50 L85,53 L93,55 L93,45 L85,47 L85,50 Z M80,67 L82,69 L89,76 L96,69 L90,62 L80,67 Z M67,80 L69,82 L65,91 L75,88 L71,79 L67,80 Z M50,85 L53,85 L55,93 L45,93 L47,85 L50,85 Z M33,80 L35,82 L31,91 L21,88 L25,79 L33,80 Z M20,67 L22,69 L16,76 L9,69 L15,62 L20,67 Z M15,50 L15,53 L7,55 L7,45 L15,47 L15,50 Z M20,33 L22,35 L9,31 L12,21 L21,25 L20,33 Z M33,20 L35,22 L25,16 L29,9 L38,15 L33,20 Z" fill="currentColor"/>
+                <circle cx="50" cy="50" r="35" fill="currentColor"/>
+                <circle cx="50" cy="50" r="22" fill="#0f172a"/>
+                <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
             </svg>
         </div>
 
-        <!-- 2. Capa Frontal: Contenido, Texto y Botones -->
+        <!-- 2. Capa Frontal: Contenido Principal y Botones -->
         <div class="container hero-content">
             <span class="badge">Catálogo Industrial 2026</span>
             <h1>Soluciones en Rodajas, Ruedas y Equipos de Manejo de Carga</h1>
@@ -85,7 +93,7 @@
             <div class="product-card">
                 <div class="card-icon">🚚</div>
                 <h3>Diablos de Carga</h3>
-                <p>Estructuras reforzadas para manejo seguro y ágil de mercancía en almacén.</p>
+                <p>Estructuras reinforced para manejo seguro y ágil de mercancía en almacén.</p>
             </div>
 
             <div class="product-card">
@@ -114,7 +122,7 @@
         </div>
     </section>
 
-    <!-- Sección de Contacto -->
+    <!-- Sección de Contacto Directo -->
     <section id="contacto" class="contact-section">
         <div class="container contact-info">
             <h2>¿Necesitas una cotización para tu empresa?</h2>
