@@ -1,963 +1,110 @@
-<!DOCTYPE html><html lang="es"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Propuesta Rediseño Web Rodacero</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-/* CSS Reset and Setup */
-
-• {
-box-sizing: border-box;
-}
-
-p {
-margin: 0 0 15px 0;
-}
-
-body {
-background-color: #111827;
-display: grid;
-gap: 24px;
-grid-template-columns: 1fr;
-margin: 0;
-min-height: 100vh;
-padding: 30px 0;
-place-items: center;
-}
-
-/* Base Slide Container Dimensions (1280x720 Ratio) */
-.slide-container {
-align-items: flex-start;
-background-color: #ffffff;
-border-radius: 12px;
-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-display: flex;
-flex-direction: column;
-font-family: 'Lato', sans-serif;
-height: 720px;
-justify-content: flex-start;
-overflow: hidden;
-padding: 50px 60px;
-position: relative;
-width: 1280px;
-}
-
-/* Background Accent Line */
-.slide-container::before {
-background: linear-gradient(90deg, #d97706, #b45309);
-content: '';
-height: 6px;
-left: 0;
-position: absolute;
-top: 0;
-width: 100%;
-z-index: 2;
-}
-
-.slide-container > * {
-position: relative;
-z-index: 1;
-}
-
-/* Typography Hierarchy */
-.slide-container h1,
-.slide-container h2,
-.slide-container h3 {
-color: #0f172a;
-font-family: 'Poppins', sans-serif;
-font-weight: 700;
-margin: 0;
-}
-
-.slide-container .slide-title {
-color: #0f172a;
-font-size: 36px;
-font-weight: 700;
-line-height: 1.2;
-margin-bottom: 35px;
-text-align: left;
-width: 100%;
-}
-
-.slide-container h3 {
-color: #1e293b;
-font-size: 24px;
-font-weight: 600;
-margin-bottom: 12px;
-}
-
-.slide-container p,
-.slide-container li,
-.slide-container td,
-.slide-container th {
-color: #475569;
-font-size: 18px;
-line-height: 1.5;
-}
-
-.slide-container .content-area {
-align-items: center;
-display: flex;
-flex-direction: column;
-flex-grow: 1;
-justify-content: center;
-width: 100%;
-}
-
-/* Title Slide Layout */
-.title-layout {
-align-items: center;
-display: flex;
-flex-direction: column;
-height: 100%;
-justify-content: center;
-text-align: center;
-width: 100%;
-}
-
-.title-layout h1 {
-color: #0f172a;
-font-size: 58px;
-letter-spacing: -0.5px;
-line-height: 1.15;
-margin-bottom: 20px;
-}
-
-.title-layout h1 span {
-color: #d97706;
-}
-
-.title-layout .subtitle {
-color: #64748b;
-font-size: 22px;
-max-width: 850px;
-}
-
-/* Section Title Layout */
-.section-title-layout {
-align-items: center;
-display: flex;
-flex-direction: column;
-height: 100%;
-justify-content: center;
-text-align: center;
-width: 100%;
-}
-
-.section-title-layout h2 {
-color: #0f172a;
-font-size: 56px;
-margin-bottom: 15px;
-}
-
-.section-title-layout p {
-color: #64748b;
-font-size: 22px;
-max-width: 750px;
-}
-
-.section-title-layout hr {
-background-color: #d97706;
-border: none;
-height: 5px;
-margin: 25px auto;
-width: 90px;
-}
-
-/* Column & Tiled Layouts */
-.two-column {
-align-items: center;
-display: grid;
-gap: 40px;
-grid-template-columns: 1fr 1fr;
-width: 100%;
-}
-
-.two-column.tiled {
-align-items: stretch;
-}
-
-.two-column.tiled > div {
-background-color: #f8fafc;
-border-radius: 12px;
-border: 1px solid #e2e8f0;
-padding: 35px;
-}
-
-.tiled-content {
-align-items: stretch;
-display: flex;
-gap: 30px;
-width: 100%;
-}
-
-.tile {
-background-color: #f8fafc;
-border-radius: 12px;
-border: 1px solid #e2e8f0;
-display: flex;
-flex-direction: column;
-flex: 1;
-padding: 30px;
-text-align: left;
-}
-
-.tile .icon {
-color: #d97706;
-font-size: 40px;
-margin-bottom: 20px;
-}
-
-/* Highlighted Numbers Layout */
-.highlight-numbers-layout {
-align-items: center;
-display: grid;
-gap: 50px;
-grid-template-columns: 1fr 1fr;
-width: 100%;
-}
-
-.highlight-numbers-layout .number-box {
-align-items: center;
-background-color: #fffbeb;
-border-radius: 16px;
-border: 2px solid #fef3c7;
-display: flex;
-flex-direction: column;
-justify-content: center;
-padding: 40px;
-text-align: center;
-}
-
-.highlight-numbers-layout .number {
-color: #d97706;
-font-family: 'Poppins', sans-serif;
-font-size: 100px;
-font-weight: 800;
-line-height: 1;
-}
-
-.highlight-numbers-layout .number-label {
-color: #78350f;
-font-size: 22px;
-font-weight: 700;
-margin-top: 10px;
-}
-
-/* Image Wrappers */
-.image-wrapper {
-border-radius: 12px;
-height: 380px;
-overflow: hidden;
-width: 100%;
-}
-
-.image-wrapper img {
-height: 100%;
-object-fit: contain;
-width: 100%;
-}
-
-/* Bleed Image Layout */
-.slide-container.bleed-image-layout {
-align-items: start;
-display: grid;
-gap: 50px;
-grid-template-columns: repeat(2, minmax(0, 1fr));
-padding: 0;
-}
-
-.slide-container.bleed-image-layout > .content-container {
-padding: 50px 0 50px 60px;
-}
-
-.slide-container.bleed-image-layout > .image-container {
-height: 100%;
-overflow: hidden;
-width: 100%;
-}
-
-.slide-container.bleed-image-layout img.bleed-image-side {
-border-radius: 0 12px 12px 0;
-display: block;
-height: 720px;
-object-fit: cover;
-width: 100%;
-}
-
-/* Tables */
-.table-layout {
-width: 100%;
-}
-
-.table-layout table {
-border-collapse: collapse;
-width: 100%;
-}
-
-.table-layout th,
-.table-layout td {
-border-bottom: 1px solid #e2e8f0;
-padding: 16px 20px;
-text-align: left;
-}
-
-.table-layout th {
-background-color: #f1f5f9;
-color: #0f172a;
-font-family: 'Poppins', sans-serif;
-font-size: 18px;
-font-weight: 700;
-}
-
-.table-layout td {
-font-size: 16px;
-}
-
-/* Timeline Layout */
-.timeline-layout {
-align-items: stretch;
-display: flex;
-height: 320px;
-justify-content: space-between;
-position: relative;
-width: 100%;
-}
-
-.timeline-layout .timeline-line {
-background-color: #cbd5e1;
-height: 4px;
-left: 0;
-position: absolute;
-top: 50%;
-transform: translateY(-2px);
-width: 100%;
-z-index: 0;
-}
-
-.timeline-item {
-position: relative;
-text-align: center;
-width: 23%;
-}
-
-.timeline-item::after {
-background-color: #ffffff;
-border-radius: 50%;
-border: 4px solid #d97706;
-content: '';
-height: 20px;
-left: 50%;
-position: absolute;
-top: 50%;
-transform: translate(-50%, -50%);
-width: 20px;
-z-index: 1;
-}
-
-.timeline-item .content-wrapper {
-left: 0;
-position: absolute;
-width: 100%;
-}
-
-.timeline-item:nth-child(odd) .content-wrapper {
-bottom: 50%;
-margin-bottom: 25px;
-}
-
-.timeline-item:nth-child(even) .content-wrapper {
-margin-top: 25px;
-top: 50%;
-}
-
-.timeline-item h3 {
-color: #d97706;
-font-size: 20px;
-}
-
-/* Quote Layout */
-.quote-layout {
-margin: 0 auto;
-text-align: center;
-width: 85%;
-}
-
-.quote-layout blockquote {
-color: #0f172a;
-font-family: 'Poppins', sans-serif;
-font-size: 38px;
-font-weight: 500;
-line-height: 1.35;
-margin: 0 0 25px 0;
-position: relative;
-}
-
-.quote-layout cite {
-color: #d97706;
-font-family: 'Lato', sans-serif;
-font-size: 22px;
-font-style: normal;
-font-weight: 700;
-}
-
-/* Q&A Layout */
-.qa-layout {
-align-self: center;
-margin: 0 auto;
-text-align: center;
-width: 100%;
-}
-
-.qa-layout h2 {
-color: #0f172a;
-font-size: 64px;
-margin-bottom: 15px;
-}
-
-.qa-layout p {
-color: #64748b;
-font-size: 24px;
-}
-
-.qa-layout .contact-info {
-color: #d97706;
-font-family: 'Poppins', sans-serif;
-font-size: 22px;
-font-weight: 600;
-margin-top: 40px;
-}
-</style>
-<style>
-.lms-source-label {
-position: absolute;
-top: 8px;
-right: 8px;
-background-color: #e0e0e0;
-color: #333333;
-border-radius: 10px;
-padding: 4px 4px;
-font-family: sans-serif;
-font-size: 10px;
-pointer-events: none;
-font-weight: 500;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-</style><style>
-:where(.slide-attributions) {
-padding: 60px;
-}
-.attribution-list {
-list-style: none;
-margin: 0;
-padding: 0;
-}
-.attribution-list__item {
-align-items: center;
-border-bottom: 1px solid #757575;
-display: grid;
-gap: 25px;
-grid-template-columns: 90px 1fr;
-padding: 15px 0;
-margin: 0 !important;
-}
-.attribution-list__item::before {
-display: none;
-}
-.attribution-list__item::after {
-display: none;
-}
-.attribution-list__item:last-child {
-border-bottom: none;
-}
-.attribution-list__item .attribution__thumbnail {
-height: 50px;
-width: 90px;
-}
-.attribution__thumbnail .attribution__thumbnail__image {
-border-radius: 8px;
-height: 100%;
-object-fit: cover;
-width: 100%;
-}
-.attribution__details {
-display: flex;
-flex-direction: column;
-gap: 5px;
-}
-.attribution__details .attribution__raw-url {
-color: inherit;
-font-size: 13px;
-margin: 0;
-word-break: break-all;
-}
-.attribution__details .attribution__title {
-color: inherit;
-font-size: 16px;
-margin: 0;
-}
-.attribution__details .attribution__title > .attribution__link {
-color: #4f46e5;
-text-decoration: none;
-}
-</style><style>
-/* The container that fills available space. It's the positioning context. /
-#slideshow-holder {
-width: 100%;
-position: relative;
-flex-grow: 1; / Replaces flex-grow Tailwind class for clarity /
-overflow: hidden;
-padding: 1rem; / Replaces p-4 Tailwind class */
-}
-
-/* UI controls should not be text-selectable. */
-#nav-controls.select-none,
-#theme-toggle.select-none {
-user-select: none;
--webkit-user-select: none;
-}
-
-/* The element that is scaled and centered. /
-#slideshow-wrapper {
-width: 1280px;
-height: 720px;
-position: absolute;
-top: 50%;
-left: 50%;
-transform-origin: center;
-transform: translate(-50%, -50%) scale(var(--scale-factor, 1));
-transition: transform 0.3s ease-in-out;
-/ Visual styles moved here from the holder */
-border-radius: 0.5rem;
-box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-overflow: hidden;
-}
-
-/* Update slide container styles */
-.slide-container {
-width: 100%;
-height: 100%;
-overflow: hidden;
-position: absolute;
-top: 0;
-left: 0;
-opacity: 0;
-pointer-events: none;
-transition: opacity 0.5s ease-in-out;
-}
-
-/* Make the active slide visible */
-.slide-container.active {
-opacity: 1;
-pointer-events: auto;
-}
-</style><script src="https://cdn.tailwindcss.com/3.4.17"></script><script>
-tailwind.config = {
-darkMode: 'class',
-corePlugins: {
-preflight: false,
-},
-}
-</script></head>
-<body class="bg-gray-100 dark:bg-gray-900 flex flex-col h-screen transition-colors duration-300">
-
-<!-- Slide 1: Title Slide -->
-
-<!-- Slide 2: Section Title -->
-
-<!-- Slide 3: Two Column Tiled Text -->
-
-<!-- Slide 4: Highlighted Numbers -->
-
-<!-- Slide 5: Section Title -->
-
-<!-- Slide 6: Image Right Text Left -->
-
-<!-- Slide 7: Tiled Text With Icons -->
-
-<!-- Slide 8: Bleed Image Right -->
-
-<!-- Slide 9: Table Comparison -->
-
-<!-- Slide 10: Timeline -->
-
-<!-- Slide 11: Quote -->
-
-<!-- Slide 12: Q&A -->
-
-<button id="theme-toggle" class="select-none absolute top-4 right-4 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-2 rounded-full shadow-md text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-all duration-300 z-20 border-none leading-[0] cursor-pointer">
-<svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-<svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 -960 960 960"><path d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"></path></svg>
-</button>
-
-<div id="nav-controls" class="select-none relative flex-shrink-0 w-full flex justify-center items-center p-4">
-<span id="slide-counter" class="absolute left-4 top-1/2 -translate-y-1/2 text-sm font-medium text-gray-600 dark:text-gray-400 font-sans"></span>
-<div class="flex items-center space-x-2">
-<button id="prev-slide" class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 p-2 rounded-md transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md border-none leading-[0] cursor-pointer">
-<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
-</button>
-<button id="next-slide" class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 p-2 rounded-md transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md border-none leading-[0] cursor-pointer">
-<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
-</button>
-</div>
-</div>
-
-<div id="slideshow-holder"><div id="slideshow-wrapper"><div class="slide-container" id="slide1">
-<div class="title-layout">
-<h1>Rediseño Web & Estrategia Digital
-<span>Rodacero México</span></h1>
-<p class="subtitle">Propuesta comercial para modernizar la presencia digital, optimizar el catálogo industrial e incrementar las ventas B2B.</p>
-</div>
-</div><div class="slide-container" id="slide2">
-<div class="section-title-layout">
-<hr>
-<h2>Diagnóstico del Sitio Actual</h2>
-<p>Evaluación técnica y comercial de la plataforma actual de Rodacero.</p>
-</div>
-</div><div class="slide-container" id="slide3">
-<h2 class="slide-title">Fallas Críticas del Sitio Actual</h2>
-<div class="content-area">
-<div class="two-column tiled">
-<div>
-<h3 style="color: #dc2626;"><i class="fa-solid fa-triangle-exclamation"></i> Problemas Técnicos y SEO</h3>
-<p><strong>• Sin Protocolo de Seguridad (HTTP):</strong> Los navegadores muestran la alerta "Sitio no seguro", espantando a compradores corporativos.</p>
-<p><strong>• Estructura de URLs rota:</strong> Rutas con prefijos numéricos dinámicos (ej. <code>/3417ce58.com/welcome_1.html</code>) impiden el posicionamiento en Google.</p>
-</div>
-<div>
-<h3 style="color: #dc2626;"><i class="fa-solid fa-file-circle-xmark"></i> Contenido e Experiencia</h3>
-<p><strong>• Textos y Maquetación Incompleta:</strong> Presencia de frases plantilla como <em>"Haga clic para agregar un título interesante"</em> y duplicación de etiquetas.</p>
-<p><strong>• Incompatibilidad Móvil:</strong> El diseño no se adapta correctamente a teléfonos ni tabletas, perdiendo más del 70% de las consultas rápidas.</p>
-</div>
-</div>
-</div>
-</div><div class="slide-container" id="slide4">
-<h2 class="slide-title">Potencial de Crecimiento Digital</h2>
-<div class="content-area">
-<div class="highlight-numbers-layout">
-<div class="number-box">
-<div class="number">+300%</div>
-<div class="number-label">Oportunidades de Cotización B2B</div>
-</div>
-<div>
-<h3>El Valor de la Confianza Visual</h3>
-<p>Actualmente, el 84% de los compradores industriales investigan en Google antes de elegir un proveedor de ruedas, rodajas y equipo de manejo de carga.</p>
-<p>Convertir el sitio web en un canal moderno y seguro permitirá capturar clientes corporativos de alto volumen que hoy compran a la competencia.</p>
-</div>
-</div>
-</div>
-</div><div class="slide-container" id="slide5">
-<div class="section-title-layout">
-<hr>
-<h2>Solución Web Integral Propuesta</h2>
-<p>Una plataforma moderna, rápida y orientada a la generación de cotizaciones inmediatas.</p>
-</div>
-</div><div class="slide-container" id="slide6">
-<h2 class="slide-title">Catálogo Digital Interactivo</h2>
-<div class="content-area">
-<div class="two-column">
-<div>
-<ul>
-<li><strong>Estructura Clara por Categorías:</strong> Organización impecable de Rodajas, Ruedas Industriales, Diablos de Carga, Patines y Racks.</li>
-<li><strong>Fichas Técnicas Descargables:</strong> Permite a los ingenieros y compradores descargar especificaciones en PDF.</li>
-<li><strong>Buscador Inteligente:</strong> Encuentra productos por capacidad de carga, material (poliuretano, fierro, nylon) y dimensiones.</li>
-<li><strong>Botón Directo de WhatsApp:</strong> Cotización en un clic para acelerar el proceso de ventas.</li>
-</ul>
-</div>
-<div>
-<div class="image-wrapper">
-<img src="https://cdn.webshopapp.com/shops/7591/files/454375284/890x820x2/industrial-reinforced-housing-swivel-castor-with-b.jpg" alt="Ruedas y Rodajas Industriales Rodacero">
-</div>
-</div>
-</div>
-</div>
-</div><div class="slide-container" id="slide7">
-<h2 class="slide-title">Beneficios de la Plataforma</h2>
-<div class="content-area">
-<div class="tiled-content">
-<div class="tile">
-<div class="icon"><i class="fa-solid fa-lock"></i></div>
-<h3>Seguridad SSL</h3>
-<p>Certificado HTTPS incluido que garantiza un sitio 100% seguro y profesional ante cualquier cliente corporativo.</p>
-</div>
-<div class="tile">
-<div class="icon"><i class="fa-solid fa-mobile-screen"></i></div>
-<h3>100% Responsivo</h3>
-<p>Navegación fluida y rápida optimizada para cualquier smartphone, tablet o computadora de escritorio.</p>
-</div>
-<div class="tile">
-<div class="icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-<h3>Posicionamiento SEO</h3>
-<p>Optimización para aparecer en los primeros lugares de Google en búsquedas como "Rodajas industriales México".</p>
-</div>
-</div>
-</div>
-</div><div class="slide-container bleed-image-layout" id="slide8">
-<div class="content-container">
-<h2 class="slide-title">Nueva Experiencia Comercial</h2>
-<div class="content-area">
-<div class="bleed-text-side">
-<h3>Imagen Industrial Robusta</h3>
-<p>Rodacero contará con una presencia digital a la altura de su catálogo de soluciones para tambores, apiladores y racks industriales.</p>
-<p>Transmita autoridad, inventario real y rapidez de entrega para cerrar contratos de suministro recurrentes.</p>
-</div>
-</div>
-</div>
-<div class="image-container">
-<img class="bleed-image-side" src="https://rrmachinery.sg/wp-content/uploads/2026/02/Types-of-Material-Handling-Equipment-Explained.webp" alt="Logística e Industria de Carga">
-</div>
-</div><div class="slide-container" id="slide9">
-<h2 class="slide-title">Comparativa: Actual vs Nuevo</h2>
-<div class="content-area">
-<div class="table-layout">
-<table>
-<thead>
-<tr>
-<th>Característica</th>
-<th>Sitio Actual (Rodacero)</th>
-<th>Nuevo Sitio Propuesto</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Seguridad / SSL</td>
-<td><i class="fa-solid fa-xmark" style="color:#ef4444;"></i> Inseguro (HTTP)</td>
-<td><i class="fa-solid fa-check" style="color:#16a34a;"></i> Certificado HTTPS Activo</td>
-</tr>
-<tr>
-<td>Diseño Móvil</td>
-<td><i class="fa-solid fa-xmark" style="color:#ef4444;"></i> Descuadrado / Anticuado</td>
-<td><i class="fa-solid fa-check" style="color:#16a34a;"></i> Adaptación Total Mobile-First</td>
-</tr>
-<tr>
-<td>Cotización Inmediata</td>
-<td><i class="fa-solid fa-xmark" style="color:#ef4444;"></i> Solo números telefónicos</td>
-<td><i class="fa-solid fa-check" style="color:#16a34a;"></i> WhatsApp + Formularios Directos</td>
-</tr>
-<tr>
-<td>SEO y Visibilidad</td>
-<td><i class="fa-solid fa-xmark" style="color:#ef4444;"></i> URLs rotas sin indexación</td>
-<td><i class="fa-solid fa-check" style="color:#16a34a;"></i> Estructura SEO para Google</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div><div class="slide-container" id="slide10">
-<h2 class="slide-title">Cronograma de Implementación</h2>
-<div class="content-area">
-<div class="timeline-layout">
-<div class="timeline-line"></div>
-<div class="timeline-item">
-<div class="content-wrapper">
-<h3>Semana 1</h3>
-<p>Levantamiento de catálogo, imágenes y contenidos finales.</p>
-</div>
-</div>
-<div class="timeline-item">
-<div class="content-wrapper">
-<h3>Semana 2</h3>
-<p>Diseño de prototipo e interfaz responsiva.</p>
-</div>
-</div>
-<div class="timeline-item">
-<div class="content-wrapper">
-<h3>Semana 3</h3>
-<p>Desarrollo web, integración de WhatsApp y SEO.</p>
-</div>
-</div>
-<div class="timeline-item">
-<div class="content-wrapper">
-<h3>Semana 4</h3>
-<p>Pruebas finales, SSL y Lanzamiento oficial.</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="slide-container" id="slide11">
-<h2 class="slide-title">Estrategia de Crecimiento</h2>
-<div class="content-area">
-<div class="quote-layout">
-<blockquote>"Tu sitio web no es solo un folleto digital, es el vendedor de Rodacero que trabaja las 24 horas del día."</blockquote>
-<cite>— Propuesta Digital Rodacero 2026</cite>
-</div>
-</div>
-</div><div class="slide-container" id="slide18">
-<div class="qa-layout">
-<h2>¿Listo para el siguiente paso?</h2>
-<p>Iniciemos el rediseño para impulsar las ventas de Rodacero.</p>
-<div class="contact-info">
-Rodacero México | Soluciones en Movimiento y Carga
-</div>
-</div>
-</div><div class="slide-container slide-attributions" id="slide-attributions-1"><h2 class="slide-title">Image Sources</h2><div class="content-area"><ul class="attribution-list"><li class="attribution-list__item"><div class="attribution__thumbnail"><img class="attribution__thumbnail__image" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT6vAIp4fQA-WxCxogFtNt2kN6buBgEdBgrnCFQQZiYIZVj1ydq6zEfpRF1KKNy" alt="Thumbnail for www.industrialwheels.com"></div><div class="attribution__details"><p class="attribution__raw-url">https://cdn.webshopapp.com/shops/7591/files/454375284/890x820x2/industrial-reinforced-housing-swivel-castor-with-b.jpg</p><p class="attribution__title">Source: <a href="https://www.industrialwheels.com/en/vk-rollen-swivel-caster-with-brake-125mm-polyureth.html" target="_blank" class="attribution__link">www.industrialwheels.com</a></p></div></li><li class="attribution-list__item"><div class="attribution__thumbnail"><img class="attribution__thumbnail__image" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT3K_zAUe5ITh1gOSX2KJKmIAKn83EVMmvZ0Vpacx9yfZKuBN2vsRUllKL0pSC_" alt="Thumbnail for rrmachinery.sg"></div><div class="attribution__details"><p class="attribution__raw-url">https://rrmachinery.sg/wp-content/uploads/2026/02/Types-of-Material-Handling-Equipment-Explained.webp</p><p class="attribution__title">Source: <a href="https://rrmachinery.sg/blog/types-of-material-handling-equipment/" target="_blank" class="attribution__link">rrmachinery.sg</a></p></div></li></ul></div></div></div></div><script>
-/**
-
-• Fetches an image blob using a method that attempts to bypass CORS issues
-
-• by adding 'alr=yes' to the URL and following redirects.
-*/
-async function fetchFifeImageBlobUsingAlr(urlString) {
-if (urlString.startsWith('blob:') || urlString.startsWith('data:')) {
-throw new Error('Input URL is already a blob or data URL.');
-}
-let url = new URL(urlString, window.location.href);
-url.searchParams.set('alr', 'yes');
-for (let i = 0; i < 5; i++) {
-const response = await fetch(url.toString(), {credentials: 'include'});
-if (!response.ok) {
-throw new Error(Fetch received not OK response: ${response.status});
-}
-if (!response.headers.get('content-type')?.startsWith('text/plain')) {
-const blob = await response.blob();
-if (blob.size > 0 && blob.type.startsWith('image/')) {
-return blob;
-}
-throw new Error('Fetched blob is not a valid image.');
-}
-url = new URL(await response.text());
-}
-throw new Error('Exceeded maximum number of redirects.');
-}
-
-async function updateImageSourcesUsingAlr() {
-// Use Promise.all to handle all updates concurrently for better performance.
-await Promise.all(Array.from(document.querySelectorAll('img'), async (img) => {
-// Only proceed if the img tag has a valid 'src' attribute with a
-// googleusercontent URL.
-if (img.src && img.src.includes('googleusercontent')) {
-try {
-const blob = await fetchFifeImageBlobUsingAlr(img.src);
-// Create a new URL from the Blob and set it as the image's source.
-img.src = URL.createObjectURL(blob);
-} catch (error) {
-// Do nothing.
-}
-}
-}));
-}
-
-async function updateBackgroundImagesUsingAlr() {
-// Find all elements with a googleusercontent background image.
-const elementsToProcess =
-document.querySelectorAll('[style*="googleusercontent"]');
-const urlRegex = /url((['"]?)(https?://.?googleusercontent.?)\1)/;
-
-await Promise.all(Array.from(elementsToProcess, async (element) => {
-const backgroundImage = element.style.backgroundImage;
-const match = backgroundImage.match(urlRegex);
-
-if (match && match[2]) {
-const originalUrl = match[2];
-try {
-const blob = await fetchFifeImageBlobUsingAlr(originalUrl);
-const blobUrl = URL.createObjectURL(blob);
-
-// Directly update the element's style property.
-element.style.backgroundImage =
-backgroundImage.replace(originalUrl, blobUrl);
-} catch (error) {
-// Do nothing.
-}
-}
-}));
-}
-
-// --- SLIDESHOW LOGIC ---
-function initializeSlideshowUi() {
-const slides = document.querySelectorAll('.slide-container');
-const prevButton = document.getElementById('prev-slide');
-const nextButton = document.getElementById('next-slide');
-const slideCounter = document.getElementById('slide-counter');
-let currentSlide = 0;
-
-function updateUi() {
-slides.forEach((slide, index) => {
-slide.classList.toggle('active', index === currentSlide);
-});
-prevButton.disabled = currentSlide === 0;
-nextButton.disabled = currentSlide === slides.length - 1;
-slideCounter.textContent = Slide ${currentSlide + 1} of ${slides.length};
-}
-
-function showNextSlide() {
-if (currentSlide < slides.length - 1) {
-currentSlide++;
-updateUi();
-}
-}
-
-function showPrevSlide() {
-if (currentSlide > 0) {
-currentSlide--;
-updateUi();
-}
-}
-
-nextButton.addEventListener('click', showNextSlide);
-prevButton.addEventListener('click', showPrevSlide);
-document.addEventListener('keydown', (e) => {
-// Don't intercept arrow keys when the user is editing text.
-const el = e.target;
-if (el.isContentEditable || el.tagName === 'INPUT' ||
-el.tagName === 'TEXTAREA') {
-return;
-}
-if (e.key === 'ArrowRight') {
-showNextSlide();
-} else if (e.key === 'ArrowLeft') {
-showPrevSlide();
-}
-});
-
-const themeToggleBtn = document.getElementById('theme-toggle');
-const darkIcon = document.getElementById('theme-toggle-dark-icon');
-const lightIcon = document.getElementById('theme-toggle-light-icon');
-const htmlEl = document.documentElement;
-
-function setTheme(isDark) {
-htmlEl.classList.toggle('dark', isDark);
-darkIcon.classList.toggle('hidden', isDark);
-lightIcon.classList.toggle('hidden', !isDark);
-localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
-}
-const isDarkMode = localStorage.getItem('color-theme') === 'dark' ||
-(!('color-theme' in localStorage) &&
-window.matchMedia('(prefers-color-scheme: dark)').matches);
-setTheme(isDarkMode);
-themeToggleBtn.addEventListener(
-'click', () => setTheme(!htmlEl.classList.contains('dark')));
-
-function updateScale() {
-const baseWidth = 1280;
-const baseHeight = 720;
-const slideshowWrapper = document.getElementById('slideshow-wrapper');
-const slideshowHolder = document.getElementById('slideshow-holder');
-
-// The available space is the dimensions of the holder div.
-const availableWidth = slideshowHolder.clientWidth;
-const availableHeight = slideshowHolder.clientHeight;
-
-// Calculate the scale ratio based on both width and height
-const scaleX = availableWidth / baseWidth;
-const scaleY = availableHeight / baseHeight;
-
-// Use the smaller of the two ratios to ensure it fits
-const finalScale = Math.min(scaleX, scaleY);
-
-slideshowWrapper.style.setProperty('--scale-factor', finalScale);
-}
-
-updateUi();
-updateScale();
-window.addEventListener('resize', updateScale);
-}
-
-document.addEventListener('DOMContentLoaded', async function() {
-await Promise.all(
-[updateImageSourcesUsingAlr(), updateBackgroundImagesUsingAlr()]);
-initializeSlideshowUi();
-});
-</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodacero | Soluciones Industriales, Rodajas y Equipos de Carga</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Fuente Google Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Encabezado / Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">RODACERO<span>.</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto" class="btn-primary">Cotizar Ahora</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <span class="badge">Catálogo Industrial 2026</span>
+            <h1>Soluciones en Rodajas, Ruedas y Equipos de Manejo de Carga</h1>
+            <p>Especialistas en suministro de equipos pesados, diablos de carga, patines hidráulicos y racks para la industria logística y de manufactura.</p>
+            <div class="hero-buttons">
+                <a href="#catalogo" class="btn-primary">Ver Catálogo</a>
+                <a href="https://wa.me/525555193275" target="_blank" class="btn-secondary">💬 Contacto Directo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Productos -->
+    <section id="catalogo" class="products-section container">
+        <div class="section-title">
+            <h2>Nuestras Líneas de Producto</h2>
+            <p>Equipamiento industrial diseñado para alta resistencia y uso rudo.</p>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="card-icon">🛞</div>
+                <h3>Rodajas y Ruedas</h3>
+                <p>Amplia gama de rodajas de poliuretano, hule e fierro fundido para todo tipo de carga.</p>
+            </div>
+
+            <div class="product-card">
+                <div class="card-icon">🚚</div>
+                <h3>Diablos de Carga</h3>
+                <p>Estructuras reforzadas para manejo seguro y ágil de mercancía en almacén.</p>
+            </div>
+
+            <div class="product-card">
+                <div class="card-icon">🏗️</div>
+                <h3>Apiladores y Patines</h3>
+                <p>Patines hidráulicos manuales para elevación y movimiento de tarimas pesadas.</p>
+            </div>
+
+            <div class="product-card">
+                <div class="card-icon">🛢️</div>
+                <h3>Equipos para Tambores</h3>
+                <p>Sistemas de sujeción, volteadores y transporte especializado de tambores.</p>
+            </div>
+
+            <div class="product-card">
+                <div class="card-icon">🏬</div>
+                <h3>Racks Industriales</h3>
+                <p>Almacenamiento vertical estructurado para optimizar espacio en bodegas.</p>
+            </div>
+
+            <div class="product-card">
+                <div class="card-icon">🛒</div>
+                <h3>Carros Plataforma y Bases</h3>
+                <p>Plataformas móviles para distribución interna de materiales e insumos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto Directo -->
+    <section id="contacto" class="contact-section">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2>¿Necesitas una cotización para tu empresa?</h2>
+                <p>Atención inmediata por teléfono o correo electrónico para pedidos de mayoreo o soporte técnico.</p>
+                <div class="phone-box">
+                    <span>📞 Teléfonos directos:</span>
+                    <a href="tel:5555193275">55-5519-3275</a> | 
+                    <a href="tel:5523435867">55-2343-5867</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Rodacero. Todos los derechos reservados. Rediseño web propuesto por Genius Network Intelligence.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
