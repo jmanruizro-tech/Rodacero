@@ -155,7 +155,7 @@ body {
 }
 
 /* =========================================================
-   CAPA 1: ENGRANJAES CAD PARAMÉTRICOS CON ENCAJE SIMÉTRICO
+   ENGRANES INDUSTRIALES 3D CON PROFUNDIDAD Y ENCAJE
    ========================================================= */
 .gears-bg-container {
     position: absolute;
@@ -164,50 +164,63 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
-    opacity: 0.18;
+    opacity: 0.22;
     pointer-events: none;
 }
 
 .gear {
     position: absolute;
-    color: #60a5fa;
-    filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.35));
+    color: #3b82f6;
     transform-box: fill-box;
-    transform-origin: 50% 50%;
+    transform-origin: 50% 43%;
 }
 
-/* --- LADO IZQUIERDO (Transmisión 24s) --- */
+/* --- IZQUIERDA --- */
+/* Engrane Principal (Enfocado / Frente) */
 .gear-main {
-    width: 240px;
-    height: 240px;
-    top: -30px;
+    width: 250px;
+    height: 250px;
+    top: -35px;
     left: -20px;
-    animation: rotateClockwise 24s linear infinite;
+    filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.4));
+    animation: rotateClockwise 26s linear infinite;
+    z-index: 2;
 }
 
+/* Engrane Secundario (Leve desenfoque para dar efecto 3D) */
 .gear-secondary {
-    width: 240px;
-    height: 240px;
-    top: 138px;  /* Distancia exacta para el engranado de dientes */
-    left: 122px;
-    animation: rotateMeshCounter 24s linear infinite;
+    width: 210px;
+    height: 210px;
+    top: 132px;
+    left: 118px;
+    opacity: 0.7;
+    filter: blur(1px) drop-shadow(0 2px 8px rgba(15, 23, 42, 0.6));
+    animation: rotateMeshCounter 21.8s linear infinite;
+    z-index: 1;
 }
 
-/* --- LADO DERECHO (Simetría Especular) --- */
+/* --- DERECHA --- */
+/* Engrane Principal Derecha (Enfocado / Frente) */
 .gear-right {
-    width: 240px;
-    height: 240px;
-    bottom: -40px;
+    width: 250px;
+    height: 250px;
+    bottom: -45px;
     right: -20px;
-    animation: rotateCounter 24s linear infinite;
+    filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.4));
+    animation: rotateCounter 26s linear infinite;
+    z-index: 2;
 }
 
+/* Engrane Secundario Derecha (Leve desenfoque) */
 .gear-small-top {
-    width: 240px;
-    height: 240px;
-    top: 20px;
-    right: 122px;
-    animation: rotateMeshClockwise 24s linear infinite;
+    width: 210px;
+    height: 210px;
+    top: 15px;
+    right: 118px;
+    opacity: 0.7;
+    filter: blur(1px) drop-shadow(0 2px 8px rgba(15, 23, 42, 0.6));
+    animation: rotateMeshClockwise 21.8s linear infinite;
+    z-index: 1;
 }
 
 /* =========================================================
@@ -386,26 +399,25 @@ footer {
     100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
 
-/* Rotación primaria en sentido horario */
+/* =========================================================
+   ANIMACIONES DE ROTACIÓN CON AJUSTE RELATIVO (MESH)
+   ========================================================= */
 @keyframes rotateClockwise {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
-/* Rotación secundaria con desfase de 15 deg (Mesh) en sentido antihorario */
 @keyframes rotateMeshCounter {
-    from { transform: rotate(15deg); }
-    to { transform: rotate(-345deg); }
+    from { transform: rotate(22.5deg); }
+    to { transform: rotate(-337.5deg); }
 }
 
-/* Rotación primaria en sentido antihorario */
 @keyframes rotateCounter {
     from { transform: rotate(0deg); }
     to { transform: rotate(-360deg); }
 }
 
-/* Rotación secundaria con desfase de 15 deg (Mesh) en sentido horario */
 @keyframes rotateMeshClockwise {
-    from { transform: rotate(15deg); }
-    to { transform: rotate(375deg); }
+    from { transform: rotate(22.5deg); }
+    to { transform: rotate(382.5deg); }
 }
