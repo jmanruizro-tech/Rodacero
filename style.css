@@ -1,0 +1,213 @@
+/* Variables de Color y Estilos Base */
+:root {
+    --primary-color: #d92323;   /* Rojo Industrial / Rodacero */
+    --secondary-color: #1a1a1a; /* Negro Antracita */
+    --accent-color: #25d366;    /* Verde WhatsApp */
+    --bg-light: #f8f9fa;
+    --text-dark: #222222;
+    --text-muted: #666666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background: #ffffff;
+    border-bottom: 2px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--secondary-color);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Botones */
+.btn-primary {
+    background: var(--primary-color);
+    color: #ffffff !important;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background 0.3s !important;
+}
+
+.btn-primary:hover {
+    background: #b51a1a !important;
+}
+
+.btn-secondary {
+    background: var(--accent-color);
+    color: #ffffff !important;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    color: #ffffff;
+    padding: 90px 0;
+    text-align: center;
+}
+
+.badge {
+    background: rgba(217, 35, 35, 0.2);
+    color: #ff6b6b;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: 38px;
+    font-weight: 800;
+    margin: 20px 0;
+}
+
+.hero p {
+    font-size: 16px;
+    color: #cccccc;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Catálogo */
+.products-section {
+    padding: 80px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--secondary-color);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: var(--bg-light);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.card-icon {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.product-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* Contacto */
+.contact-section {
+    background: var(--bg-light);
+    padding: 60px 0;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.phone-box {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.phone-box a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    background: var(--secondary-color);
+    color: #888888;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 12px;
+}
